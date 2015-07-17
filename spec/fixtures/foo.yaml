@@ -1,0 +1,9 @@
+type: object
+description: foo
+properties:
+  foo:
+    type: string
+    description: foo
+    example: foo
+  bar:
+    include: bar.yaml

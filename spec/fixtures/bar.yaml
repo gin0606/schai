@@ -1,0 +1,7 @@
+type: object
+description: bar
+properties:
+  bar:
+    type: string
+    description: bar
+    example: bar

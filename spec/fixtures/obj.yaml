@@ -1,0 +1,53 @@
+type: object
+description: だいたいの要素含んだやつ
+properties:
+  boolean_property:
+    type: boolean
+    description: 真偽値
+    example: false
+  integer_property:
+    type: integer
+    description: 整数
+    example: 1
+  number_property:
+    type: number
+    description: 数値
+    example: 0.1
+  null_property:
+    type: 'null'
+    description: 'nullはパースした時にnilになるからクォーテーションで囲まないとダメ'
+    example: 'null'
+  string_property:
+    type: string
+    description: 文字列
+    example: foo
+  optional_property:
+    type: boolean
+    description: 要素に入ってないかもしれないやつ
+    optional: true
+  format_property:
+    type: string
+    description: フォーマット指定できるやつ
+    format: uri
+  object_property:
+    type: object
+    description: 連想配列
+    example: |
+      {"p1": false}
+    properties:
+      p1:
+        type: boolean
+  array_property:
+    type: array
+    description: リスト
+    example: |
+      ["hoge"]
+    items:
+      type: string
+  include_property:
+    include: foo.yaml
+  array_include:
+    type: array
+    description: includeで外から持ってくる
+    items:
+      include: foo.yaml
