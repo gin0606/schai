@@ -1,5 +1,5 @@
 module Schai
-  class Object
+  class JsObject
     attr_accessor :optional, :description, :example, :all
 
     def self.parse params
@@ -8,7 +8,7 @@ module Schai
 
     def initialize params
       @all = Hash[params["properties"].map {|k, v|
-        [k || 'null', Root.parse_components(v)]
+        [k || 'null', JsRoot.parse_components(v)]
       }]
       @description = params["description"]
       @example = params["example"]

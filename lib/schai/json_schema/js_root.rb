@@ -1,5 +1,5 @@
 module Schai
-  class Root
+  class JsRoot
     attr_accessor :schema
 
     def self.parse params
@@ -18,13 +18,13 @@ module Schai
         end
         included_schema
       when params['type'] == 'object'
-        Object.parse params
+        JsObject.parse params
       when params['type'] == 'array'
-        Array.parse params
+        JsArray.parse params
       when !params.has_key?('type')
         raise "typeは必須(#{params})"
       else
-        Property.parse params
+        JsProperty.parse params
       end
     end
 

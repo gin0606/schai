@@ -8,7 +8,7 @@ require "yaml"
 
 module Schai
   def self.parse params
-    Root.parse params
+    JsRoot.parse params
   end
 
   def self.parse_file path

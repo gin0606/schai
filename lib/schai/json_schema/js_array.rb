@@ -1,5 +1,5 @@
 module Schai
-  class Array
+  class JsArray
     attr_accessor :optional, :description, :example, :items
 
     def self.parse params
@@ -7,7 +7,7 @@ module Schai
     end
 
     def initialize params
-      @items = Property.parse params['items']
+      @items = JsProperty.parse params['items']
       @description = params["description"]
       @example = params["example"]
       @optional = params["optional"]

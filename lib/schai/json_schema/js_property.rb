@@ -1,5 +1,5 @@
 module Schai
-  class Property
+  class JsProperty
     attr_accessor :optional, :description, :example, :type, :format
 
     def self.parse params
