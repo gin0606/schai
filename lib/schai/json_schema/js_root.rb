@@ -3,26 +3,29 @@ module Schai
     attr_accessor :schema
 
     def self.parse params
-      ret = self.new
-      ret.schema = parse_components params
-      ret
+      self.new.tap do |js_root|
+        js_root.schema = parse_components params
+      end
     end
 
     def self.parse_components params
-      case
-      when params.has_key?('include')
+      raise "typeは必須(#{params})" unless params.has_key?('type')
+
+      # include other .yaml file
+      if params.has_key?('include')
         included_schema = Schai.parse_file(params.delete('include')).schema
         params.each do |k, v|
           setter = "#{k}=".to_sym
           included_schema.send(setter, v)
         end
-        included_schema
-      when params['type'] == 'object'
+        return included_schema
+      end
+
+      case params['type']
+      when 'object'
         JsObject.parse params
-      when params['type'] == 'array'
+      when 'array'
         JsArray.parse params
-      when !params.has_key?('type')
-        raise "typeは必須(#{params})"
       else
         JsProperty.parse params
       end
