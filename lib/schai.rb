@@ -1,8 +1,8 @@
 require "schai/version"
-require "schai/root"
-require "schai/object"
-require "schai/array"
-require "schai/property"
+require "schai/json_schema/js_root"
+require "schai/json_schema/js_object"
+require "schai/json_schema/js_array"
+require "schai/json_schema/js_property"
 require "schai/cli"
 require "yaml"
 
