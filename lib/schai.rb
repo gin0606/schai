@@ -13,6 +13,12 @@ module Schai
 
   def self.parse_file path
     @@path ||=[]
+
+    YAML.add_domain_type(nil, "include") do |type, val|
+      expand_path = File.expand_path("../#{val}", @@path.last)
+      YAML.load_file(expand_path)
+    end
+
     if @@path.empty?
       @@path << path
       ret = parse YAML.load_file(path)

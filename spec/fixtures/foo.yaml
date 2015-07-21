@@ -5,5 +5,4 @@ properties:
     type: string
     description: foo
     example: foo
-  bar:
-    include: bar.yaml
+  bar: !include bar.yaml
