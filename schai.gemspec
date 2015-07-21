@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["gin0606"]
   spec.email         = ["kkgn06@gmail.com"]
 
-  spec.summary       = "json schema tsurai"
-  spec.description   = "json schema tsurai"
+  spec.summary       = "Generate JSON Schema from simple yaml."
+  spec.description   = "Generate JSON Schema from simple yaml."
   spec.homepage      = "https://github.com/gin0606/schai"
   spec.license       = "MIT"
 
