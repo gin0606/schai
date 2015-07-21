@@ -1,4 +1,7 @@
 # schai
+
+[![Build Status](https://travis-ci.org/gin0606/schai.svg?branch=master)](https://travis-ci.org/gin0606/schai)
+
 ## Installation
 
 Add this line to your application's Gemfile:
