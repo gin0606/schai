@@ -1,4 +1,5 @@
 require 'schai'
+require 'json'
 require 'thor'
 
 module Schai
