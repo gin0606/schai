@@ -6,9 +6,11 @@ describe Schai do
   end
 
   it 'can parse yaml' do
-    properties = Schai.parse_file "spec/fixtures/obj.yaml"
-    expect(properties.to_schema).not_to be nil
-    expect(JSON.pretty_generate properties.to_schema).not_to be nil
+    schema = Schai.parse_file("spec/fixtures/obj.yaml").to_schema
+    expect(schema).not_to be nil
+    expect(JSON.pretty_generate schema).not_to be nil
+
+    expect(schema[:properties]["include_property"][:description]).to eq 'included property'
   end
 
   it 'can parse basic types' do

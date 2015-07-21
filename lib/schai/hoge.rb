@@ -41,7 +41,12 @@ module Schai
     def self.parse_components params
       case
       when params.has_key?('include')
-        Schai.parse_file(params['include']).schema
+        included_schema = Schai.parse_file(params.delete('include')).schema
+        params.each do |k, v|
+          setter = "#{k}=".to_sym
+          included_schema.send(setter, v)
+        end
+        included_schema
       when params['type'] == 'object'
         Object.parse params
       when params['type'] == 'array'

@@ -45,6 +45,7 @@ properties:
     items:
       type: string
   include_property:
+    description: included property
     include: foo.yaml
   array_include:
     type: array
