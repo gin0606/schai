@@ -1,6 +1,6 @@
 # schai
 
-[![Build Status](https://travis-ci.org/gin0606/schai.svg?branch=master)](https://travis-ci.org/gin0606/schai)
+[![Gem Version](https://badge.fury.io/rb/schai.svg)](http://badge.fury.io/rb/schai) [![Build Status](https://travis-ci.org/gin0606/schai.svg?branch=master)](https://travis-ci.org/gin0606/schai)
 
 ## Installation
 
