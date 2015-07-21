@@ -9,8 +9,6 @@ module Schai
     end
 
     def self.parse_components params
-      raise "typeは必須(#{params})" unless params.has_key?('type')
-
       # include other .yaml file
       if params.has_key?('include')
         included_schema = Schai.parse_file(params.delete('include')).schema
@@ -21,6 +19,7 @@ module Schai
         return included_schema
       end
 
+      raise "typeは必須(#{params})" unless params.has_key?('type')
       case params['type']
       when 'object'
         JsObject.parse params
