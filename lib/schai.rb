@@ -11,17 +11,20 @@ module Schai
     JsRoot.parse params
   end
 
-  def self.parse_file path
+  def self.path
     @@path ||=[]
-    if @@path.empty?
-      @@path << path
+  end
+
+  def self.parse_file path
+    if Schai.path.empty?
+      Schai.path << path
       ret = parse YAML.load_file(path)
-      @@path.pop
+      Schai.path.pop
     else
-      expand_path = File.expand_path("../#{path}", @@path.last)
-      @@path << expand_path
+      expand_path = File.expand_path("../#{path}", Schai.path.last)
+      Schai.path << expand_path
       ret = parse YAML.load_file(expand_path)
-      @@path.pop
+      Schai.path.pop
     end
     ret
   end
