@@ -10,6 +10,10 @@ module Schai
 
     def self.parse_components params
       # include other .yaml file
+      if Schai.current_parsing_file?(params['include']) and params['optional']
+        return nil
+      end
+
       if params.has_key?('include')
         included_schema = Schai.parse_file(params.delete('include')).schema
         params.each do |k, v|
