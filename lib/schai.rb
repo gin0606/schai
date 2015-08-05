@@ -15,6 +15,10 @@ module Schai
     @@path ||=[]
   end
 
+  def self.current_parsing_file? path
+    File.expand_path("../#{path}", Schai.path.last) == Schai.path.last
+  end
+
   def self.parse_file path
     if Schai.path.empty?
       Schai.path << path

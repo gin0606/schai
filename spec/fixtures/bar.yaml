@@ -5,3 +5,6 @@ properties:
     type: string
     description: bar
     example: bar
+  baz:
+    optional: true
+    include: bar.yaml

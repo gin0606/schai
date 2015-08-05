@@ -7,6 +7,10 @@ module Schai
     end
 
     def initialize params
+      params["properties"].select! do |k, e|
+        !(Schai.current_parsing_file?(e['include']) and e['optional'])
+      end
+
       @all = Hash[params["properties"].map {|k, v|
         [k || 'null', JsRoot.parse_components(v)]
       }]
